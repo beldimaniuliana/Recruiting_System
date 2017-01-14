@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package svr.User;
+package srv.User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,25 +22,35 @@ import rs.request.Request;
  *
  * @author Stefan
  */
-@WebServlet(name = "UpdateUser", urlPatterns = {"/UpdateUser"})
-public class UpdateUser extends HttpServlet {
+@WebServlet(name = "GetUsers", urlPatterns = {"/GetUsers"})
+public class GetUsers extends HttpServlet {
  @EJB
  Request requestt;
-   
-  
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-            
-              int id = Integer.parseInt(request.getParameter("id"));
-              User user = requestt.getUser(id);
-              
-              List<Role> roleList = requestt.getAllRoles();
-              request.getSession().setAttribute("roleList", roleList);
-              
-              request.getSession().setAttribute("user", user); 
-              response.sendRedirect("User/UpdateUser.jsp");
-    }
+    
+    
+ 
 
   
-  
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+              List<User> userList = requestt.getAllUsers();
+              request.getSession().setAttribute("userList", userList); 
+        
+             
+              response.sendRedirect("User/User.jsp");
+    }
+
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+            doGet(request, response);
+              
+        
+        
+    }
+
+ 
+
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package svr.User;
+package srv.User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,42 +15,44 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import rs.entities.Role;
-import rs.entities.User;
 import rs.request.Request;
 
 /**
  *
  * @author Stefan
  */
-@WebServlet(name = "GetUsers", urlPatterns = {"/GetUsers"})
-public class GetUsers extends HttpServlet {
+@WebServlet(name = "GetRolesList", urlPatterns = {"/GetRolesList"})
+public class GetRolesList extends HttpServlet {
  @EJB
  Request requestt;
-    
-    
- 
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+       
+    }
+
 
   
-    
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-              List<User> userList = requestt.getAllUsers();
-              request.getSession().setAttribute("userList", userList); 
-        
-             
-              response.sendRedirect("User/User.jsp");
+              List<Role> roleList = requestt.getAllRoles();
+              request.getSession().setAttribute("roleList", roleList);
+              response.sendRedirect("User/AddUser.jsp");
+      
     }
 
     
+  
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            doGet(request, response);
-              
-        
-        
+        processRequest(request, response);
     }
 
- 
+   
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }

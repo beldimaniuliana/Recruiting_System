@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package svr.User;
+package srv.User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,14 +19,15 @@ import rs.request.Request;
  *
  * @author Stefan
  */
-@WebServlet(name = "AddUser", urlPatterns = {"/AddUser"})
-public class AddUser extends HttpServlet {
+@WebServlet(name = "DeleteUser", urlPatterns = {"/DeleteUser"})
+public class DeleteUser extends HttpServlet {
 @EJB
 Request requestt;
-
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-   
+        response.setContentType("text/html;charset=UTF-8");
+       
     }
 
   
@@ -37,25 +38,17 @@ Request requestt;
     }
 
  
+  
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
-        String email = request.getParameter("email");
-        //String phone = request.getParameter("phone");
-        int role = Integer.parseInt(request.getParameter("role"));
-        
-        requestt.createUser(1, username, password, firstname, lastname, email, 9, 0, role);
-       
-        
-        response.sendRedirect("User/User.jsp");
-        
+
+           int id = Integer.parseInt(request.getParameter("id"));
+
+            requestt.DeleteUser(id);
+            response.sendRedirect("GetUsers"); 
     }
 
- 
     @Override
     public String getServletInfo() {
         return "Short description";

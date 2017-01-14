@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package svr.User;
+package srv.User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,15 +19,15 @@ import rs.request.Request;
  *
  * @author Stefan
  */
-@WebServlet(name = "DeleteUser", urlPatterns = {"/DeleteUser"})
-public class DeleteUser extends HttpServlet {
+@WebServlet(name = "UpdateUserDo", urlPatterns = {"/UpdateUserDo"})
+public class UpdateUserDo extends HttpServlet {
 @EJB
 Request requestt;
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+    
     }
 
   
@@ -38,17 +38,26 @@ Request requestt;
     }
 
  
-  
-    
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-           int id = Integer.parseInt(request.getParameter("id"));
-
-            requestt.DeleteUser(id);
-            response.sendRedirect("GetUsers"); 
+        int id = Integer.parseInt(request.getParameter("id"));
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String email = request.getParameter("email");
+        //String phone = request.getParameter("phone");
+        int role = Integer.parseInt(request.getParameter("role"));
+        
+        requestt.updateUser(id, username, password, firstname, lastname, email, 9, 0, role);
+       
+        
+        response.sendRedirect("User/User.jsp");
+        
     }
 
+    
     @Override
     public String getServletInfo() {
         return "Short description";
