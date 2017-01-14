@@ -4,6 +4,7 @@ package srv.Position;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +23,10 @@ public class AddPosition extends HttpServlet {
             String position = request.getParameter("position");
             String requirement = request.getParameter("requirements");
             
-            req.AddPosition(1, position, requirement);
-            response.sendRedirect("Position/Position.jsp");
-    }
+            req.AddPosition(1, position, requirement); 
 
+            request.getSession().setAttribute("msg", "Succesfully inserted: " + position + requirement);
+ 
+            response.sendRedirect("Position/Position.jsp"); 
+    }
 }

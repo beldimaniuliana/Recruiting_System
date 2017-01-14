@@ -28,7 +28,19 @@
       
     <button type="submit" class="btn btn-default">Create</button>
   </form>
- 
+  
+  <br><br>
+  
+  <% if(session.getAttribute("msg") != null) { %>
+    <div class="alert alert-success">
+        <strong>
+            <%= session.getAttribute("msg") %>
+        </strong>
+    </div>
+  <% } %>
+
+  
+   
  </div>
 </div>
 
