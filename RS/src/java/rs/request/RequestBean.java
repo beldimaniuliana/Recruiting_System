@@ -10,7 +10,9 @@ import javax.persistence.PersistenceContext;
 import rs.entities.Candidate;
 import rs.entities.Job;
 import rs.entities.Position;
+import rs.entities.Role;
 import rs.entities.Status;
+import rs.entities.User;
 
 @Stateful
 public class RequestBean implements Request{
@@ -18,7 +20,75 @@ public class RequestBean implements Request{
     private EntityManager em;    
     
     //--------- USER ----------
+    public void createUser(Integer id, String username, String password, String firstName, String lastName, String email, int phone, int active, int role){
+            User user = new User(id, username, password, firstName, lastName, email, phone, active);
+            Role idRole = em.find(Role.class, role);
+            user.setIdRole(idRole);
+            em.persist(user);
+           
+     }
+    
+    
+    public void updateUser(Integer id, String username, String password, String firstName, String lastName, String email, int phone, int active, int role){
+            User user= em.find(User.class, id);
+    
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setFirstName(firstName);
+            user.setLastName(lastName);
+            user.setEmail(email);
+            user.setPhone(phone);
+            user.setActive(active);
+            Role idRole = em.find(Role.class, role);
+            user.setIdRole(idRole);
+            em.merge(user);
+           
+     }
+     public List<User> getAllUsers(){
+          
+         List<User> users = null;
+         try {
+            users = (List<User>) em.createNamedQuery(
+                        "User.findAll").getResultList();
+            return users;
+            
+          }catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+    
+      public User getUser(Integer userId) {
+            User user = em.find(User.class, userId);
+            return user;
+    }  
+     
+    public User DeleteUser(Integer id){
+        try{
+            User user = (User)em.find(User.class, id);
+            em.remove(user); 
+            return user;
+            
+        }catch (Exception ex){
+            throw new EJBException(ex);
+        }
+    } 
+    
     //--------- ROLE ----------
+     
+     public List<Role> getAllRoles(){
+          
+         List<Role> roles = null;
+         try {
+            roles = (List<Role>) em.createNamedQuery(
+                        "Role.findAll").getResultList();
+            return roles;
+            
+          }catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+     
+     
     //--------- JOB -----------
     public void AddJob(Integer id, Date date, int no_spot, int id_position, int id_candidate, int id_status) {
         Job job = new Job(id, date, no_spot);

@@ -6,13 +6,22 @@ import java.util.List;
 import javax.ejb.Remote;
 import rs.entities.Job;
 import rs.entities.Position;
+import rs.entities.Role;
 import rs.entities.Status;
+import rs.entities.User;
 
 @Remote
 public interface Request {
     
     //--------- USER ----------
+    public void createUser(Integer id, String username, String password, String firstName, String lastName, String email, int phone, int active, int role);
+    public void updateUser(Integer id, String username, String password, String firstName, String lastName, String email, int phone, int active, int role);
+    public List<User> getAllUsers();
+    public User getUser(Integer userId);   
+    public User DeleteUser(Integer id);
+    
     //--------- ROLE ----------
+     public List<Role> getAllRoles();
     //--------- JOB -----------
     void AddJob(Integer id, Date date, int no_spot, int id_position, int id_candidate, int id_status);
     public List<Job> getJob();

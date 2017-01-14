@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../includes/private_header.jsp" />
 <style><jsp:include page="../css/page.css"/></style>
 <style><jsp:include page="../css/left_menu.css"/></style>
@@ -14,20 +15,47 @@
 <div class="container">
  <div class="row">
  
-  <h2>Add new User:</h2>
-  <form action="../addPosition" method="POST">
-    <div class="form-group">
-      <label for="de la input name: numele aici">Position name:</label>
-      <input type="text" class="form-control" name="numele" placeholder="Position">
-    </div>
-      
-    <div class="form-group">
-      <label for="la fel si aici">Position Requirements</label>
-      <input type="text" class="form-control" name="hehe" placeholder="Requirements">
-    </div>  
-      
-    <button type="submit" class="btn btn-default">Create</button>
-  </form>
+  <h3>Register a new user</h3>
+  <a class="btn btn-link" href="<%=request.getContextPath()%>/GetRolesList" role="button">Go to Register</a>
+  
+  <br/><br/><br/><br/>
+  <h2>All Registered users</h2> <br/>
+         <table class="table table-hover">
+                 <th>ID</th>
+                 <th>USERNAME</th>
+                 <th>PASSWORD</th>
+                 <th>FIRST NAME</th>
+                 <th>LAST NAME</th>
+                 <th>EMAIL</th>
+                 <th>PHONE</th>
+                 <th>ACTIVE</th>
+                 <th>ROLE</th>
+                 <c:forEach items="${userList}" var="item">
+             <tr>
+                 <td>${item.id}</td>
+                 <td>${item.username}</td>
+                 <td>${item.password}</td>
+                 <td>${item.firstName}</td>
+                 <td>${item.lastName}</td>
+                 <td>${item.email}</td>
+                 <td>${item.phone}</td>
+                 <td>${item.active}</td>
+                 <td>${item.idRole.name}</td>
+                 <td>
+                     <form action="../UpdateUser" method="POST">
+                         <input type="hidden" name="id" value="${item.id}">
+                         <input type="submit" value="Edit" class="btn btn-primary">
+                     </form>
+                 </td>      
+                 <td>
+                     <form action="../DeleteUser" method="POST">
+                         <input type="hidden" name="id" value="${item.id}">
+                         <input type="submit" value="Delete" class="btn btn-danger">
+                     </form>
+                 </td>
+             </tr>
+             </c:forEach>
+         </table>
  
  </div>
 </div>
