@@ -1,5 +1,5 @@
 
-package srv.Position;
+package srv.Status;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,21 +15,19 @@ import javax.servlet.http.HttpServletResponse;
 import rs.entities.Position;
 import rs.request.Request;
 
-@WebServlet(name = "AddPosition", urlPatterns = {"/AddPosition"})
-public class AddPosition extends HttpServlet {
+@WebServlet(name = "UpdateStatus", urlPatterns = {"/UpdateStatus"})
+public class UpdateStatus extends HttpServlet {
 
     @EJB
     Request req;
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-            String position = request.getParameter("position");
-            String requirement = request.getParameter("requirements");
+        
+            int id = Integer.parseInt(request.getParameter("id"));
             
-            req.AddPosition(1, position, requirement); 
-  
-            request.getSession().setAttribute("msg", "Succesfully inserted");
+            String name = request.getParameter("status");
 
-            response.sendRedirect("GetPosition"); 
+            req.UpdateStatus(id, name);
+            response.sendRedirect("GetStatus"); 
     }
 }

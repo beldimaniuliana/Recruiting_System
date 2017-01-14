@@ -23,7 +23,6 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-
 @Entity
 @Table(name = "EJB_Job")
 @XmlRootElement
@@ -73,7 +72,7 @@ public class Job implements Serializable {
         this.date = date;
         this.noSpot = noSpot;
     }
-
+  
     public Integer getId() {
         return id;
     }

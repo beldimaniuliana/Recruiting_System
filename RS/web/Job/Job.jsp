@@ -8,7 +8,7 @@
   <p class="navbar-brand" >Analysis and changes</p><br><br>
   
   <ul class="nav navbar-nav">
-    <li> <a href="<%=request.getContextPath()%>/GetJob">Job Offer</a>
+    <li> <a href="<%=request.getContextPath()%>/GetJob">Job Offer</a></li>
     <li><a href="#">New Status</a></li> 
   </ul>
 </div>
@@ -17,15 +17,45 @@
  <div class="row">
  
   <h2>New Job Offer:</h2>
-  <form action="../AddPosition" method="POST">
+  <form action="../AddJob" method="POST">
     <div class="form-group">
-      <label for="position">Position name:</label>
-      <input type="text" class="form-control" name="position" placeholder="Position">
+      <label for="position">Position:</label>
+      <select class="form-control" name="position">
+            <c:forEach items="${positions}" var="item">
+                <option value="1">test</option>
+                <option value=${item.id}>${item.name}</option>
+            </c:forEach>
+      </select>
     </div>
       
     <div class="form-group">
-      <label for="requirements">Position Requirements</label>
-      <input type="text" class="form-control" name="requirements" placeholder="Requirements">
+      <label for="candidate">Candidate</label>
+        <select class="form-control" name="candidate">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </div>
+      
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" class="form-control" name="date" placeholder="Date">
+    </div> 
+      
+    <div class="form-group">
+      <label for="status">Status</label>
+        <select class="form-control" name="status">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </div>
+      
+     <div class="form-group">
+      <label for="spot">Available Spots</label>
+      <input type="number" class="form-control" name="spot" placeholder="Spot number">
     </div>  
       
     <button type="submit" class="btn btn-default">Create</button>
@@ -41,25 +71,34 @@
       </div>
     <% } %>
     
-
-        <h2>Jobs</h2>
-        <p>Job</p>            
+        <h2>All Jobs</h2>
+        <p>Here are all jobs</p>            
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Requirements</th>
+              <th>Date</th>
+              <th>Number of spots</th>
+              <th>Position</th>
+              <th>Delete</th>
+              <th>Update</th>
             </tr>
           </thead>
            
           <tbody>
-          <c:forEach items="${}" var="item">    
-       
+          <c:forEach items="${jobs}" var="item">    
+            <tr>
+                <td>${item.date}</td>
+                <td>${item.noSpot}</td>
+                <td>${item.idPosition.id}</td>
+                <td><a href="">Delete</a></td>
+                <td><a href="">Update</a>
+                   
+                </td>
+            </tr>
           </c:forEach>
           </tbody>
        
         </table>
-
  </div>
 </div>
 

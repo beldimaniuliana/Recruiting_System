@@ -15,21 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 import rs.entities.Position;
 import rs.request.Request;
 
-@WebServlet(name = "AddPosition", urlPatterns = {"/AddPosition"})
-public class AddPosition extends HttpServlet {
+@WebServlet(name = "DeletePosition", urlPatterns = {"/DeletePosition"})
+public class DeletePosition extends HttpServlet {
 
     @EJB
     Request req;
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+            int id = Integer.parseInt(request.getParameter("id"));
 
-            String position = request.getParameter("position");
-            String requirement = request.getParameter("requirements");
-            
-            req.AddPosition(1, position, requirement); 
-  
-            request.getSession().setAttribute("msg", "Succesfully inserted");
-
+            req.DeletePosition(id);
             response.sendRedirect("GetPosition"); 
     }
 }

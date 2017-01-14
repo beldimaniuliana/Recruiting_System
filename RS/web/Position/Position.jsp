@@ -8,8 +8,8 @@
   <p class="navbar-brand" >Analysis and changes</p><br><br>
   
   <ul class="nav navbar-nav">
-    <li> <a href="<%=request.getContextPath()%>/GetJob">Job Offer</a>
-    <li><a href="#">New Status</a></li> 
+    <li> <a href="<%=request.getContextPath()%>/GetJob">Job Offer</a></li>
+    <li><a href="<%=request.getContextPath()%>/GetStatus">New Status</a></li> 
   </ul>
 </div>
 
@@ -59,15 +59,28 @@
             <tr>
                 <td>${item.name}</td>
                 <td>${item.requirements}</td>
-                <td><a href="">Delete</a><td>
-                <td><a href="">Update</a><td>
+                <td>
+                    <form action="../DeletePosition" method="POST">
+                        <input type="hidden" name="id" value=${item.id}>
+                        <input type="submit" name="submit" value="Delete">
+                    </form>
+                </td>
+                <td>
+                    <form action="UpdatePosition.jsp" method="POST">
+                        <input type="hidden" name="id" value=${item.id}>
+                        <input type="hidden" name="position" value=${item.name}>
+                        <input type="hidden" name="requirements" value=${item.requirements}>
+                        <input type="submit" name="submit" value="Edit">
+                    </form>
+                </td>
             </tr>
           </c:forEach>
           </tbody>
        
         </table>
-
  </div>
 </div>
+
+    
 
 <jsp:include page="../includes/footer.jsp" />

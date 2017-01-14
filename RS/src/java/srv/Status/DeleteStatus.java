@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import rs.request.Request;
 
-@WebServlet(name = "AddStatus", urlPatterns = {"/AddStatus"})
-public class AddStatus extends HttpServlet {
+@WebServlet(name = "DeleteStatus", urlPatterns = {"/DeleteStatus"})
+public class DeleteStatus extends HttpServlet {
 
     @EJB
     Request req;
@@ -21,11 +21,12 @@ public class AddStatus extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-            String status = request.getParameter("status");
+            int id = Integer.parseInt(request.getParameter("id"));
+            String name = request.getParameter("name");
             
-            req.AddStatus(1, status); 
+            req.DeleteStatus(id);
   
-            request.getSession().setAttribute("msg", "Succesfully inserted: " + status);
+            request.getSession().setAttribute("msg", "Succesfully deleted: " + name);
 
             response.sendRedirect("GetStatus"); 
     }

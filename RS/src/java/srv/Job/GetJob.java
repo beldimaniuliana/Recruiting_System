@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import rs.entities.Job;
 import rs.entities.Position;
 import rs.request.Request;
 
@@ -20,8 +21,11 @@ public class GetJob extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-            //List<Position> postitions = req.getPosition();
-            //request.getSession().setAttribute("positions", postitions); 
+            List<Job> jobs = req.getJob();
+            request.getSession().setAttribute("jobs", jobs); 
+            
+            List<Position> postitions = req.getPosition();
+            request.getSession().setAttribute("positions", postitions); 
             
             response.sendRedirect("Job/Job.jsp"); 
     }
