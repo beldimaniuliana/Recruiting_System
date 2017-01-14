@@ -1,7 +1,8 @@
     
         </div>
-        
-        <div id="footer" class="footer"></div>
+          
+        <footer class="navbar-fixed-bottom footer">
+        </footer>
         
         </div>
 

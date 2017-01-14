@@ -1,6 +1,6 @@
 <jsp:include page="../includes/private_header.jsp" />
 <style><jsp:include page="../css/page.css"/></style>
-<style><jsp:include page="../css/position.css"/></style>
+<style><jsp:include page="../css/left_menu.css"/></style>
 
 <div class="navbar navbar-inverse navbar-fixed-left color">
    <p class="navbar-brand" >Analysis and changes</p><br><br>

@@ -1,8 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../includes/private_header.jsp" />
 <style><jsp:include page="../css/page.css"/></style>
-<style><jsp:include page="../css/position.css"/></style>
+<style><jsp:include page="../css/left_menu.css"/></style>
 
-<div class="navbar navbar-inverse navbar-fixed-left color">
+
+<div class="navbar navbar-inverse navbar-fixed-left color top">
   <p class="navbar-brand" >Analysis and changes</p><br><br>
   
   <ul class="nav navbar-nav">
@@ -15,7 +17,7 @@
  <div class="row">
  
   <h2>Add new Job Position:</h2>
-  <form action="../addPosition" method="POST">
+  <form action="../AddPosition" method="POST">
     <div class="form-group">
       <label for="position">Position name:</label>
       <input type="text" class="form-control" name="position" placeholder="Position">
@@ -29,18 +31,39 @@
     <button type="submit" class="btn btn-default">Create</button>
   </form>
   
-  <br><br>
+    <br><br>
   
-  <% if(session.getAttribute("msg") != null) { %>
-    <div class="alert alert-success">
-        <strong>
-            <%= session.getAttribute("msg") %>
-        </strong>
-    </div>
-  <% } %>
+    <% if(session.getAttribute("msg") != null) { %>
+      <div class="alert alert-success">
+          <strong>
+              <%= session.getAttribute("msg") %>
+          </strong>
+      </div>
+    <% } %>
+    
 
-  
-   
+        <h2>Job Positions</h2>
+        <p>Here are all available positions</p>            
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Requirements</th>
+            </tr>
+          </thead>
+           
+          <tbody>
+          <c:forEach items="${positions}" var="item">    
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.requirements}</td>
+            </tr>
+          </c:forEach>
+          </tbody>
+       
+        </table>
+    
+
  </div>
 </div>
 

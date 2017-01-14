@@ -2,8 +2,9 @@
   width: 200px;
   position: fixed;
   border-radius: 0;
-  height: 100%;
   text-align: center;
+  height: 100%;
+  
 }
 
 .navbar-fixed-left .navbar-nav > li {
@@ -18,11 +19,11 @@
 }
 
 .navbar-fixed-left + .container {
-  padding-left: 160px;
+  padding-left: 150px;
 }
 
 .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
-  margin-top: -50px;
+  margin-top: 0px;
   margin-left: 140px;
 }
 
@@ -35,4 +36,9 @@
     margin:0;
 }
 
+
+.top{
+    margin-top:0px;
+    position:absolute;
+}
 

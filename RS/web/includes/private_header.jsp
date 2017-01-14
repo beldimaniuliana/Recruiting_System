@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,7 +29,7 @@
                 </div>
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="http://localhost:8080/RS/private/index.jsp">Home</a></li>
-                  <li><a href="http://localhost:8080/RS/Position/Position.jsp">Job Positions</a></li>
+                  <li> <a href="<%=request.getContextPath()%>/GetPosition">Job Positions</a>
                   <li><a href="http://localhost:8080/RS/Candidate/Candidate.jsp">Candidates</a></li>
                   <li><a href="http://localhost:8080/RS/User/User.jsp">Users</a></li>
                   <li><a href="http://localhost:8080/RS/auth/contact.jsp">Contact</a></li>
@@ -39,7 +40,9 @@
               </div>
         </nav>
      
-        <div id="main">
+        <div id="main">        
+
+            
             
  
   
