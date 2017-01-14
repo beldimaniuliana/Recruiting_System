@@ -30,6 +30,6 @@ public class AddPosition extends HttpServlet {
   
             request.getSession().setAttribute("msg", "Succesfully inserted: " + position + requirement);
 
-            response.sendRedirect("Position/Position.jsp"); 
+            response.sendRedirect("GetPosition"); 
     }
 }

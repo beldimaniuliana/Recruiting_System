@@ -8,7 +8,7 @@
   <p class="navbar-brand" >Analysis and changes</p><br><br>
   
   <ul class="nav navbar-nav">
-    <li><a href="#">Job Offer</a></li> 
+    <li> <a href="<%=request.getContextPath()%>/GetJob">Job Offer</a>
     <li><a href="#">New Status</a></li> 
   </ul>
 </div>
@@ -49,6 +49,8 @@
             <tr>
               <th>Name</th>
               <th>Requirements</th>
+              <th>Delete</th>
+              <th>Update</th>
             </tr>
           </thead>
            
@@ -57,12 +59,13 @@
             <tr>
                 <td>${item.name}</td>
                 <td>${item.requirements}</td>
+                <td><a href="">Delete</a><td>
+                <td><a href="">Update</a><td>
             </tr>
           </c:forEach>
           </tbody>
        
         </table>
-    
 
  </div>
 </div>
