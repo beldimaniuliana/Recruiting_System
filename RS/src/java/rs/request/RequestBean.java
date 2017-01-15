@@ -2,6 +2,7 @@
 package rs.request;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.ejb.EJBException;
 import javax.ejb.Stateful;
@@ -302,6 +303,31 @@ public class RequestBean implements Request{
            }catch (Exception ex){
                 throw new EJBException(ex);
             }
+    }
+    
+    //---------LOGIN------------
+    public boolean checkUser(String email,String password){
+        
+        try{
+            
+            List<User> users = (List<User>) em.createNamedQuery("User.findByUsername").setParameter("username", email).getResultList();
+            
+            for (Iterator<User> i = users.iterator();i.hasNext();){
+                User user = i.next();
+                if (user.getUsername().equals(email) ){
+                    if((user.getPassword().equals(password))){
+                        return true;
+                    }
+                    
+                }
+            }
+            
+          return false;
+        
+        }catch (Exception ex){
+                throw new EJBException(ex);
+            }
+        
     }
 
 

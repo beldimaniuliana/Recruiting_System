@@ -46,4 +46,7 @@ public interface Request {
     public List<Status> getStatus();
     Status DeleteStatus(Integer id);
     Status UpdateStatus(Integer id, String name);
+    //--------- LOGIN ----------
+    boolean checkUser(String email, String password);
+    //-------- UPLOAD ----------
 }
