@@ -30,7 +30,7 @@
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="http://localhost:8080/RS/private/index.jsp">Home</a></li>
                   <li> <a href="<%=request.getContextPath()%>/GetPosition">Job Positions</a>
-                  <li><a href="http://localhost:8080/RS/Candidate/Candidate.jsp">Candidates</a></li>
+                     <li> <a href="<%=request.getContextPath()%>/GetCandidate">Candidates</a>
                   <li><a href="<%=request.getContextPath()%>/GetUsers">Users</a></li>
                   <li><a href="http://localhost:8080/RS/auth/contact.jsp">Contact</a></li>
                 </ul>

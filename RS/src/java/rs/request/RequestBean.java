@@ -226,9 +226,7 @@ public class RequestBean implements Request{
         }
     }
 
-    @Override
-    public List<Candidate> getAllCandidate() {
-                  
+    public List<Candidate> getAllCandidate() {        
          List<Candidate> candidate = null;
          try {
             candidate = (List<Candidate>) em.createNamedQuery(

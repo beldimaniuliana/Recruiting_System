@@ -29,7 +29,7 @@ public class UpdateCandidate extends HttpServlet {
             throws ServletException, IOException {
                 
                int id = Integer.parseInt(request.getParameter("id"));
-              List<Candidate> candidate = requestt.getCandidate();
+               List<Candidate> candidate = requestt.getCandidate();
               
 
               

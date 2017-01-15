@@ -20,12 +20,11 @@ public interface Request {
     public List<User> getAllUsers();
     public User getUser(Integer userId);   
     public User DeleteUser(Integer id);
-    
     //--------- ROLE ----------
-     public List<Role> getAllRoles();
-     public void createRole(Integer id, String name);
-     public void updateRole(Integer id, String name);
-     public Role DeleteRole(Integer id);
+    public List<Role> getAllRoles();
+    public void createRole(Integer id, String name);
+    public void updateRole(Integer id, String name);
+    public Role DeleteRole(Integer id);
     //--------- JOB -----------
     void AddJob(Integer id, Date date, int no_spot, int id_position, int id_candidate, int id_status);
     Job DeleteJob(Integer id);
@@ -47,6 +46,4 @@ public interface Request {
     public List<Status> getStatus();
     Status DeleteStatus(Integer id);
     Status UpdateStatus(Integer id, String name);
-
-
 }

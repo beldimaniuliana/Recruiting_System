@@ -8,7 +8,7 @@
   
   <ul class="nav navbar-nav">
    <li><a href="<%=request.getContextPath()%>/GetUsers">Users</a></li>
-   <li><a href="AddUser.jsp">Register User</a></li>
+   <li><a href="../User/AddUser.jsp">Register User</a></li>
    <li><a href="<%=request.getContextPath()%>/GetRoles">New Role</a></li>
   </ul>
 </div>
@@ -37,11 +37,18 @@
          <table class="table table-hover">
                  <th>ID</th>
                  <th>Role</th>
-               
+                 <th>Delete</th>
+                 <th>Update</th>
                  <c:forEach items="${roleList}" var="item">
              <tr>
                  <td>${item.id}</td>
                  <td>${item.name}</td>
+                 <td>
+                     <form action="../DeleteRole" method="POST">
+                         <input type="hidden" name="id" value=${item.id}>
+                         <input type="submit" value="Delete" class="btn btn-danger">
+                     </form>
+                 </td>
                  <td>
                      <form action="UpdateRole.jsp" method="POST">
                          <input type="hidden" name="id" value=${item.id}>
@@ -49,12 +56,6 @@
                          <input type="submit" value="Edit" class="btn btn-primary">
                      </form>
                  </td>      
-                 <td>
-                     <form action="../DeleteRole" method="POST">
-                         <input type="hidden" name="id" value=${item.id}>
-                         <input type="submit" value="Delete" class="btn btn-danger">
-                     </form>
-                 </td>
              </tr>
              </c:forEach>
          </table>

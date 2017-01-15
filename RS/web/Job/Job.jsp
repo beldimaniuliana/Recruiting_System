@@ -22,7 +22,6 @@
       <label for="position">Position:</label>
       <select class="form-control" name="position">
             <c:forEach items="${positions}" var="item">
-                <option value="1">test</option>
                 <option value=${item.id}>${item.name}</option>
             </c:forEach>
       </select>
@@ -31,10 +30,7 @@
     <div class="form-group">
       <label for="candidate">Candidate</label>
         <select class="form-control" name="candidate">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+        <option>none</option>
       </select>
     </div>
       
@@ -47,7 +43,6 @@
       <label for="status">Status</label>
         <select class="form-control" name="status">
             <c:forEach items="${status}" var="item">
-                <option value="1">test</option>
                 <option value=${item.id}>${item.name}</option>
             </c:forEach>
         </select>
@@ -91,13 +86,13 @@
             <tr>
                 <td>${item.date}</td>
                 <td>${item.noSpot}</td>
-                <td>${item.idPosition.id}</td>
-                <td>${item.idCandidate.id}</td>
-                <td>${item.idStatus.id}</td>
+                <td>${item.idPosition.name}</td>
+                <td>${item.idCandidate.name}</td>
+                <td>${item.idStatus.name}</td>
                 <td>
                     <form action="../DeleteJob" method="POST">
                         <input type="hidden" name="id" value=${item.id}>
-                        <input type="submit" name="submit" value="Delete">
+                        <input type="submit" name="submit" value="Delete"  class="btn btn-danger">
                     </form>
                 </td>
                 <td>
@@ -108,7 +103,7 @@
                         <input type="hidden" name="position" value=${item.idPosition.id}>
                         <input type="hidden" name="candidate" value=${item.idCandidate.id}>
                         <input type="hidden" name="status" value=${item.idStatus.id}>
-                        <input type="submit" name="submit" value="Edit">
+                        <input type="submit" name="submit" value="Edit" class="btn btn-primary">
                     </form>
                 </td>
             </tr>
