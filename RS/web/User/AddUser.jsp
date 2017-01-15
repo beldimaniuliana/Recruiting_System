@@ -7,8 +7,9 @@
   <p class="navbar-brand" >Analysis and changes</p><br><br>
   
   <ul class="nav navbar-nav">
-   <li><a href="#">Users</a></li>
-   <li><a href="#">New Role</a></li>
+   <li><a href="<%=request.getContextPath()%>/GetUsers">Users</a></li>
+   <li><a href="AddUser.jsp">Register User</a></li>
+   <li><a href="<%=request.getContextPath()%>/GetRoles">New Role</a></li>
   </ul>
 </div>
 

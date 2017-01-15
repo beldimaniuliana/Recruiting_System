@@ -38,7 +38,9 @@ public class GetUsers extends HttpServlet {
               List<User> userList = requestt.getAllUsers();
               request.getSession().setAttribute("userList", userList); 
         
-             
+              List<Role> roleList = requestt.getAllRoles();
+              request.getSession().setAttribute("roleList", roleList);
+              
               response.sendRedirect("User/User.jsp");
     }
 

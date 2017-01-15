@@ -31,14 +31,20 @@ public class UpdateUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
-              int id = Integer.parseInt(request.getParameter("id"));
-              User user = requestt.getUser(id);
-              
-              List<Role> roleList = requestt.getAllRoles();
-              request.getSession().setAttribute("roleList", roleList);
-              
-              request.getSession().setAttribute("user", user); 
-              response.sendRedirect("User/UpdateUser.jsp");
+        int id = Integer.parseInt(request.getParameter("id"));
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String email = request.getParameter("email");
+        //String phone = request.getParameter("phone");
+        int role = Integer.parseInt(request.getParameter("role"));
+        
+        requestt.updateUser(id, username, password, firstname, lastname, email, 9, 0, role);
+       
+        
+        response.sendRedirect("GetUsers");
+        
     }
 
   

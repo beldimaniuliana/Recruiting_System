@@ -7,29 +7,28 @@
   <p class="navbar-brand" >Analysis and changes</p><br><br>
   
   <ul class="nav navbar-nav">
-   <li><a href="#">Users</a></li>
-   <li><a href="#">New Role</a></li>
+   <li><a href="<%=request.getContextPath()%>/GetUsers">Users</a></li>
+   <li><a href="AddUser.jsp">Register User</a></li>
+   <li><a href="<%=request.getContextPath()%>/GetRoles">New Role</a></li>
   </ul>
 </div>
 
 <div class="container">
  <div class="row">
  
-  <h3>Register a new user</h3>
-  <a class="btn btn-link" href="<%=request.getContextPath()%>/GetRolesList" role="button">Go to Register</a>
-  
+     
   <br/><br/><br/><br/>
-  <h2>All Registered users</h2> <br/>
+  <h3>All Registered users</h3> <br/>
          <table class="table table-hover">
                  <th>ID</th>
-                 <th>USERNAME</th>
-                 <th>PASSWORD</th>
-                 <th>FIRST NAME</th>
-                 <th>LAST NAME</th>
-                 <th>EMAIL</th>
-                 <th>PHONE</th>
-                 <th>ACTIVE</th>
-                 <th>ROLE</th>
+                 <th>Username</th>
+                 <th>Password</th>
+                 <th>FirstName</th>
+                 <th>LastName</th>
+                 <th>Email</th>
+                 <th>Phone</th>
+                 <th>Active</th>
+                 <th>Role</th>
                  <c:forEach items="${userList}" var="item">
              <tr>
                  <td>${item.id}</td>
@@ -42,8 +41,16 @@
                  <td>${item.active}</td>
                  <td>${item.idRole.name}</td>
                  <td>
-                     <form action="../UpdateUser" method="POST">
-                         <input type="hidden" name="id" value="${item.id}">
+                     <form action="UpdateUser.jsp" method="POST">
+                         <input type="hidden" name="id" value=${item.id}>
+                         <input type="hidden" name="username" value=${item.username}>
+                         <input type="hidden" name="password" value=${item.password}>
+                         <input type="hidden" name="firstName" value=${item.firstName}>
+                         <input type="hidden" name="lastName" value=${item.lastName}>
+                         <input type="hidden" name="email" value=${item.email}>
+                         <input type="hidden" name="phone" value=${item.phone}>
+                         <input type="hidden" name="active" value=${item.active}>
+                         
                          <input type="submit" value="Edit" class="btn btn-primary">
                      </form>
                  </td>      

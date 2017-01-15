@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package srv.User;
+package srv.Role;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,20 +19,20 @@ import rs.request.Request;
  *
  * @author Stefan
  */
-@WebServlet(name = "DeleteUser", urlPatterns = {"/DeleteUser"})
-public class DeleteUser extends HttpServlet {
+@WebServlet(name = "UpdateRole", urlPatterns = {"/UpdateRole"})
+public class UpdateRole extends HttpServlet {
 @EJB
-Request requestt;
-   
- 
+ Request requestt;
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+     
+                 int id = Integer.parseInt(request.getParameter("id"));
+                 String name = request.getParameter("name");
+        
+                 requestt.updateRole(id, name);
 
-           int id = Integer.parseInt(request.getParameter("id"));
-
-            requestt.DeleteUser(id);
-            response.sendRedirect("GetUsers"); 
-    }
-
- 
+                 response.sendRedirect("GetRoles");
+        
+            }
 }

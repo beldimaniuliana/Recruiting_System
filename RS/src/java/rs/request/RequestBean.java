@@ -74,6 +74,31 @@ public class RequestBean implements Request{
     } 
     
     //--------- ROLE ----------
+    
+     public void createRole(Integer id, String name){
+           
+         Role role = new Role(id,name);
+            em.persist(role); 
+     }
+    
+
+     public Role DeleteRole(Integer id){
+         try{
+            Role role = (Role)em.find(Role.class, id);
+            em.remove(role); 
+            return role;
+            
+        }catch (Exception ex){
+            throw new EJBException(ex);
+        }
+     }
+     
+     public void updateRole(Integer id, String name){     
+            Role role= em.find(Role.class, id);
+            role.setName(name);
+            em.merge(role);
+     
+     }
      
      public List<Role> getAllRoles(){
           
