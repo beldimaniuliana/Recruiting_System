@@ -24,6 +24,8 @@ public interface Request {
      public List<Role> getAllRoles();
     //--------- JOB -----------
     void AddJob(Integer id, Date date, int no_spot, int id_position, int id_candidate, int id_status);
+    Job DeleteJob(Integer id);
+    Job UpdateJob(Integer id, Date date, int no_spot, int id_position, int id_candidate, int id_status);
     public List<Job> getJob();
     //------- POSITION --------
     void AddPosition(Integer id, String name, String requirements);

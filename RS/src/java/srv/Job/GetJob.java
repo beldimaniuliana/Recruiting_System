@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import rs.entities.Job;
 import rs.entities.Position;
+import rs.entities.Status;
 import rs.request.Request;
 
 @WebServlet(name = "GetJob", urlPatterns = {"/GetJob"})
@@ -26,6 +27,9 @@ public class GetJob extends HttpServlet {
             
             List<Position> postitions = req.getPosition();
             request.getSession().setAttribute("positions", postitions); 
+            
+            List<Status> status = req.getStatus();
+            request.getSession().setAttribute("status", status); 
             
             response.sendRedirect("Job/Job.jsp"); 
     }

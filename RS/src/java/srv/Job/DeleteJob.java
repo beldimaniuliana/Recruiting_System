@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import rs.request.Request;
 
-@WebServlet(name = "DeletePosition", urlPatterns = {"/DeletePosition"})
-public class DeletePosition extends HttpServlet {
+@WebServlet(name = "DeleteJob", urlPatterns = {"/DeleteJob"})
+public class DeleteJob extends HttpServlet {
 
     @EJB
     Request req;
@@ -20,7 +20,7 @@ public class DeletePosition extends HttpServlet {
         
             int id = Integer.parseInt(request.getParameter("id"));
 
-            req.DeletePosition(id);
-            response.sendRedirect("GetPosition"); 
+            req.DeleteJob(id);
+            response.sendRedirect("GetJob"); 
     }
 }

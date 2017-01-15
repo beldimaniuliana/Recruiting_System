@@ -24,7 +24,7 @@ public class AddJob extends HttpServlet {
             throws ServletException, IOException {
 
             int position = Integer.parseInt(request.getParameter("position"));
-            int candidate = Integer.parseInt(request.getParameter("candidate"));
+            //int candidate = Integer.parseInt(request.getParameter("candidate"));
             int status = Integer.parseInt(request.getParameter("status"));
             int spots = Integer.parseInt(request.getParameter("spot"));
             String date = request.getParameter("date");
@@ -33,7 +33,7 @@ public class AddJob extends HttpServlet {
              
             try {
                 Date startDate = sdf.parse(date);
-                req.AddJob(1, sdf.parse(date), spots, position, candidate, status); 
+                req.AddJob(1, sdf.parse(date), spots, position, 0, status); 
             } catch (ParseException ex) {
                 Logger.getLogger(AddJob.class.getName()).log(Level.SEVERE, null, ex);
             }

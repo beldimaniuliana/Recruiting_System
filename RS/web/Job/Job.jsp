@@ -46,11 +46,11 @@
     <div class="form-group">
       <label for="status">Status</label>
         <select class="form-control" name="status">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
+            <c:forEach items="${status}" var="item">
+                <option value="1">test</option>
+                <option value=${item.id}>${item.name}</option>
+            </c:forEach>
+        </select>
     </div>
       
      <div class="form-group">
@@ -79,6 +79,8 @@
               <th>Date</th>
               <th>Number of spots</th>
               <th>Position</th>
+              <th>Candidate</th>
+              <th>Status</th>
               <th>Delete</th>
               <th>Update</th>
             </tr>
@@ -90,9 +92,24 @@
                 <td>${item.date}</td>
                 <td>${item.noSpot}</td>
                 <td>${item.idPosition.id}</td>
-                <td><a href="">Delete</a></td>
-                <td><a href="">Update</a>
-                   
+                <td>${item.idCandidate.id}</td>
+                <td>${item.idStatus.id}</td>
+                <td>
+                    <form action="../DeleteJob" method="POST">
+                        <input type="hidden" name="id" value=${item.id}>
+                        <input type="submit" name="submit" value="Delete">
+                    </form>
+                </td>
+                <td>
+                    <form action="UpdateJob.jsp" method="POST">
+                        <input type="hidden" name="id" value=${item.id}>
+                        <input type="hidden" name="date" value=${item.date}>
+                        <input type="hidden" name="spot" value=${item.noSpot}>
+                        <input type="hidden" name="position" value=${item.idPosition.id}>
+                        <input type="hidden" name="candidate" value=${item.idCandidate.id}>
+                        <input type="hidden" name="status" value=${item.idStatus.id}>
+                        <input type="submit" name="submit" value="Edit">
+                    </form>
                 </td>
             </tr>
           </c:forEach>

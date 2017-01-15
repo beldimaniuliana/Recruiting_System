@@ -8,10 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import rs.request.Request;
 
-@WebServlet(name = "DeletePosition", urlPatterns = {"/DeletePosition"})
-public class DeletePosition extends HttpServlet {
+@WebServlet(name = "UpdateJob", urlPatterns = {"/UpdateJob"})
+public class UpdateJob extends HttpServlet {
 
     @EJB
     Request req;
@@ -19,8 +20,11 @@ public class DeletePosition extends HttpServlet {
             throws ServletException, IOException {
         
             int id = Integer.parseInt(request.getParameter("id"));
+            
+            //String name = request.getParameter("position");
+            //to be continue...
 
-            req.DeletePosition(id);
-            response.sendRedirect("GetPosition"); 
+            //req.UpdateJob(id, date, no_spot, id_position, id_candidate, id_status);
+            response.sendRedirect("GetJob"); 
     }
 }

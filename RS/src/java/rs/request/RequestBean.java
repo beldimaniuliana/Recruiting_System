@@ -103,6 +103,36 @@ public class RequestBean implements Request{
  
         em.persist(job);
     }
+    
+    public Job UpdateJob(Integer id, Date date, int no_spot, int id_position, int id_candidate, int id_status){
+        Job job = (Job)em.find(Job.class, id);
+
+        job.setDate(date);
+        job.setNoSpot(no_spot);
+        
+        Position idPosition = em.find(Position.class, id_position);
+        Candidate idCandidate = em.find(Candidate.class, id_candidate);
+        Status idStatus = em.find(Status.class, id_status);
+        
+        job.setIdPosition(idPosition);
+        job.setIdCandidate(idCandidate);
+        job.setIdStatus(idStatus);
+      
+        em.merge(job);
+        return job;
+    }
+    
+    public Job DeleteJob(Integer id){
+        try{
+            Job job = (Job)em.find(Job.class, id);
+            em.remove(job); 
+            return job;
+            
+        }catch (Exception ex){
+            throw new EJBException(ex);
+        }
+    }
+    
     public List<Job> getJob(){
         List<Job> jobs = null;
         try {
@@ -119,6 +149,7 @@ public class RequestBean implements Request{
         Position position = new Position(id, name, requirements);
         em.persist(position);
     }
+    
     public Position UpdatePosition(Integer id, String name, String requirements){
         Position position = (Position)em.find(Position.class, id);
 
@@ -128,6 +159,7 @@ public class RequestBean implements Request{
         em.merge(position);
         return position;
     }
+    
     public Position DeletePosition(Integer id){
         try{
             Position position = (Position)em.find(Position.class, id);
@@ -138,6 +170,7 @@ public class RequestBean implements Request{
             throw new EJBException(ex);
         }
     }
+    
     public List<Position> getPosition(){
         List<Position> positions = null;
         try {
