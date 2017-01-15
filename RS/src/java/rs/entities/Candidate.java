@@ -74,6 +74,10 @@ public class Candidate implements Serializable {
         this.cv = cv;
     }
 
+    public Candidate(Integer id, String firstname, String lastname) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Integer getId() {
         return id;
     }

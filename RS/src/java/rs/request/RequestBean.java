@@ -208,6 +208,61 @@ public class RequestBean implements Request{
         }
     }
     //------- CANDIDATE -------
+    
+    public void AddCandidate(int id, String firstname, String lastname) {
+        Candidate candidate = new Candidate(id, firstname,lastname);
+        em.persist(candidate);
+    }
+
+  
+    public Candidate DeleteCandidate(Integer id) {
+         try{
+            Candidate candidate = (Candidate)em.find(Candidate.class, id);
+            em.remove(candidate); 
+            return candidate;
+            
+        }catch (Exception ex){
+            throw new EJBException(ex);
+        }
+    }
+
+    @Override
+    public List<Candidate> getAllCandidate() {
+                  
+         List<Candidate> candidate = null;
+         try {
+            candidate = (List<Candidate>) em.createNamedQuery(
+                        "Candidate.findAll").getResultList();
+            return candidate;
+            
+          }catch (Exception ex) {
+            throw new EJBException(ex);
+        }
+    }
+
+    
+    public List<Candidate> getCandidate() {
+               List<Candidate> candidate = null;
+        try {
+            candidate = (List<Candidate>) em.createNamedQuery(
+                        "Candidate.findAll").getResultList();
+            return candidate;
+
+        }catch (Exception ex){
+            throw new EJBException(ex);
+    }
+
+    }
+   
+    public Candidate UpdateCandidate(Integer id, String firstname, String lastname) {
+        Candidate candidate =em.find(Candidate.class, id);
+
+        candidate.setFirstName(firstname);
+        candidate.setLastName(lastname);
+      
+        em.merge(candidate);
+        return candidate;
+    }
     //-------- STATUS ---------
     public void AddStatus(Integer id, String name){
         Status status = new Status(id, name);
@@ -250,4 +305,6 @@ public class RequestBean implements Request{
                 throw new EJBException(ex);
             }
     }
+
+
 }

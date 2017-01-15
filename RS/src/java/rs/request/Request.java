@@ -4,6 +4,7 @@ package rs.request;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
+import rs.entities.Candidate;
 import rs.entities.Job;
 import rs.entities.Position;
 import rs.entities.Role;
@@ -36,9 +37,16 @@ public interface Request {
     Position DeletePosition(Integer id);
     public List<Position> getPosition();
     //------- CANDIDATE -------
+    public void AddCandidate(int id, String firstname, String lastname);
+    public Candidate DeleteCandidate(Integer id);
+    public List<Candidate> getAllCandidate();
+    public List<Candidate> getCandidate();
+    public Candidate UpdateCandidate(Integer id, String firstname, String lastname);
     //-------- STATUS ---------
     void AddStatus(Integer id, String name);
     public List<Status> getStatus();
     Status DeleteStatus(Integer id);
     Status UpdateStatus(Integer id, String name);
+
+
 }
