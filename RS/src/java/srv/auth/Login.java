@@ -1,5 +1,5 @@
 
-package srv.Login;
+package srv.auth;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,11 +7,13 @@ import java.util.Arrays;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Inject;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import rs.request.Request;
 
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
@@ -23,15 +25,19 @@ public class Login extends HttpServlet {
         
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        //String submit = request.getParameter("submit");
        
         if(req.checkUser(email, password)==true){
-            response.sendRedirect("private/index.jsp");
+            HttpSession session = request.getSession(true);
+            session.setAttribute("user", email);
+            RequestDispatcher rd = request.getRequestDispatcher("private/index.jsp");
+            rd.forward(request, response);
+       
         }
             
         else{
-            request.getSession().setAttribute("msg", "Username and/or password invalid. ");
-            response.sendRedirect("auth/login.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.include(request, response);
+            
         }
     }
 

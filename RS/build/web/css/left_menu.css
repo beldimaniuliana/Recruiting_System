@@ -1,0 +1,44 @@
+.navbar-fixed-left {
+  width: 200px;
+  position: fixed;
+  border-radius: 0;
+  text-align: center;
+  height: 100%;
+  
+}
+
+.navbar-fixed-left .navbar-nav > li {
+  float: none; 
+  width: 200px;
+  font-weight: bold;
+  font-family: "Arial", Georgia, Serif;
+  font-size: 15px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 2px;
+}
+
+.navbar-fixed-left + .container {
+  padding-left: 150px;
+}
+
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+  margin-top: 0px;
+  margin-left: 140px;
+}
+
+.color {
+    background-color: #ECECEA;
+    border:0px;
+}
+
+.navbar {
+    margin:0;
+}
+
+
+.top{
+    margin-top:0px;
+    position:absolute;
+}
+

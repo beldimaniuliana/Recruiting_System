@@ -1,0 +1,44 @@
+
+*{
+    padding: 0px auto;
+    margin: 0px auto;
+}
+
+#page{
+    height:100%;
+    width:100%; 
+}
+
+#header{
+    height:150px;
+    width: 100%;
+    background-color: #558C89;
+}
+
+#main{
+    margin-bottom: 50px;
+}
+
+.menu{
+    background-color: #74AFAD;
+    border:0px;
+    border-radius: 0px;
+    margin:0;
+    padding:0;
+}
+
+.footer{
+    height:50px;
+    width:100%;
+    background:#74AFAD;
+}
+
+
+.center{
+    text-align: center;
+}
+
+
+
+
+

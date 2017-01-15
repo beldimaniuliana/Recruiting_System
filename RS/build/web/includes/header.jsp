@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<style><jsp:include page="../css/page.css"/></style>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,32 +23,34 @@
         
         <div id="header"></div>
         
-        <nav class="navbar navbar-default menu">
+        <div id="menu">
+            
+            <nav class="navbar navbar-default">
               <div class="container-fluid">
                 <div class="navbar-header">
                   <a class="navbar-brand" href="#">** Recruiting System **</a>
                 </div>
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="http://localhost:8080/RS/private/index.jsp">Home</a></li>
-                  <li> <a href="<%=request.getContextPath()%>/GetPosition">Job Positions</a>
-                     <li> <a href="<%=request.getContextPath()%>/GetCandidate">Candidates</a>
-                  <li><a href="<%=request.getContextPath()%>/GetUsers">Users</a></li>
-                  <li><a href="http://localhost:8080/RS/auth/contact.jsp">Contact</a></li>
+                  <li class="active"><a href="http://localhost:8080/RS">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Career
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="<%=request.getContextPath()%>/GetJobOffer">Jobs</a></li>
+                      <li><a href="#">CV Model</a></li>
+                    </ul>
+                  </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        
-                        
-                        <a href="<%=request.getContextPath()%>/Logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
-                        
-                    </li>
+                  <li><a href="http://localhost:8080/RS/auth/login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
                 </ul>
               </div>
-        </nav>
-     
-        <div id="main">        
-
+            </nav>
             
+        </div>
+        
+        <div id="main" class="container">
             
  
   
