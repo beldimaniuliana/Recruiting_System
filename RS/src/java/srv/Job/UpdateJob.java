@@ -1,5 +1,5 @@
 
-package srv.Position;
+package srv.Job;
 
 import java.io.IOException;
 import javax.ejb.EJB;
