@@ -3,7 +3,7 @@
 <style><jsp:include page="../css/page.css"/></style>
 <style><jsp:include page="../css/left_menu.css"/></style>
 
-<div class="navbar navbar-inverse navbar-fixed-left color">
+<div class="navbar navbar-inverse navbar-fixed-left color top">
    <p class="navbar-brand" >Analysis and changes</p><br><br>
   
   <ul class="nav navbar-nav">  

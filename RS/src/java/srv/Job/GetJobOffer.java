@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import rs.entities.Candidate;
 import rs.entities.Job;
 import rs.entities.Position;
 import rs.entities.Status;
@@ -30,6 +31,9 @@ public class GetJobOffer extends HttpServlet {
             
             List<Status> status = req.getStatus();
             request.getSession().setAttribute("status", status); 
+            
+             List<Candidate> candidates = req.getCandidate();
+            request.getSession().setAttribute("candidates", candidates); 
             
             response.sendRedirect("jobs.jsp"); 
     }

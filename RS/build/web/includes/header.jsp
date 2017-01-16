@@ -32,13 +32,13 @@
                 </div>
                 <ul class="nav navbar-nav">
                   <li class="active"><a href="http://localhost:8080/RS">Home</a></li>
-                  <li><a href="#">About Us</a></li>
+                  <li><a href="http://localhost:8080/RS/aboutUs.jsp">About Us</a></li>
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Career
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="<%=request.getContextPath()%>/GetJobOffer">Jobs</a></li>
-                      <li><a href="#">CV Model</a></li>
+                      <li><a href="http://localhost:8080/RS/model_cv.jsp">CV Model</a></li>
                     </ul>
                   </li>
                   <li><a href="http://localhost:8080/RS/auth/contact.jsp">Contact</a></li>

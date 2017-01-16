@@ -29,8 +29,10 @@
       
     <div class="form-group">
       <label for="candidate">Candidate</label>
-        <select class="form-control" name="candidate">
-        <option>none</option>
+          <select class="form-control" name="candidate">
+            <c:forEach items="${candidates}" var="item">
+                <option value=${item.id}>${item.id}</option>
+            </c:forEach>
       </select>
     </div>
       
