@@ -208,7 +208,6 @@ public class RequestBean implements Request{
         }
     }
     //------- CANDIDATE -------
-    
     public void AddCandidate(int id, String firstname, String lastname,byte[] cv,int  id_job) {
         Candidate candidate = new Candidate(id, firstname, lastname, cv);
      
@@ -244,22 +243,9 @@ public class RequestBean implements Request{
             throw new EJBException(ex);
         }
     }
-
-    public List<Candidate> getAllCandidate() {        
-         List<Candidate> candidate = null;
-         try {
-            candidate = (List<Candidate>) em.createNamedQuery(
-                        "Candidate.findAll").getResultList();
-            return candidate;
-            
-          }catch (Exception ex) {
-            throw new EJBException(ex);
-        }
-    }
-
     
     public List<Candidate> getCandidate() {
-               List<Candidate> candidate = null;
+        List<Candidate> candidate = null;
         try {
             candidate = (List<Candidate>) em.createNamedQuery(
                         "Candidate.findAll").getResultList();
@@ -267,16 +253,19 @@ public class RequestBean implements Request{
 
         }catch (Exception ex){
             throw new EJBException(ex);
-    }
-
+        }
     }
    
-    public Candidate UpdateCandidate(Integer id, String firstname, String lastname) {
-        Candidate candidate =em.find(Candidate.class, id);
+    public Candidate UpdateCandidate(int id,String firstname, String lastname,byte[] cv, int id_job) {
+        Candidate candidate = em.find(Candidate.class, id);
 
         candidate.setFirstName(firstname);
         candidate.setLastName(lastname);
-      
+        candidate.setCv(cv);
+        
+        Job idJob = em.find(Job.class, id_job);
+        candidate.setIdJob(idJob);
+  
         em.merge(candidate);
         return candidate;
     }

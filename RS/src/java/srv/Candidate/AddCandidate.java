@@ -2,28 +2,30 @@
 package srv.Candidate;
 
 import java.io.IOException;
-import java.sql.Blob;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import rs.request.Request;
 
+@WebServlet(name = "AddCandidate", urlPatterns = {"/AddCandidate"})
 public class AddCandidate extends HttpServlet {
     
+    @EJB
     Request req;
-    
-     protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-         String firstname = request.getParameter("firstname");
-         String lastname = request.getParameter("lastname");
-         String CV = request.getParameter("CV");
-         
-         int id_job = Integer.parseInt(request.getParameter("id"));
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String CV = request.getParameter("fileName");
+        byte[] input = new byte[1];
+        int id_job = Integer.parseInt(request.getParameter("job"));
 
-        // req.AddCandidate(1, firstname, lastname);
+        req.AddCandidate(1, firstname, lastname, input, id_job);
          
-         response.sendRedirect("Candidate/Candidate.jsp");
+        response.sendRedirect("GetCandidate");
      }
 }

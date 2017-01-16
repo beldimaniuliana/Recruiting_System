@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package srv.Candidate;
 
 import java.io.IOException;
@@ -12,10 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import rs.request.Request;
 
-/**
- *
- * @author ionut
- */
 public class UpdateCandidateDo extends HttpServlet {
     
     Request requestt;
@@ -41,10 +33,8 @@ public class UpdateCandidateDo extends HttpServlet {
         String lastname = request.getParameter("lastname");
 
 
-        
-        requestt.UpdateCandidate(id, firstname, lastname);
-       
-        
+        //requestt.UpdateCandidate(id, firstname, lastname);
+  
         response.sendRedirect("Candidate/Candidate.jsp");
         
     }

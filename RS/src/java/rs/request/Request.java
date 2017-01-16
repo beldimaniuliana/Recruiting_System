@@ -40,9 +40,8 @@ public interface Request {
     void AddCandidate(int id,String firstname, String lastname, byte[] cv, int id_job);
     void AddCandidateToJob(int id,String firstname, String lastname, byte[] cv, int id_job, int spot);
     Candidate DeleteCandidate(Integer id);
-    List<Candidate> getAllCandidate();
     List<Candidate> getCandidate();
-    Candidate UpdateCandidate(Integer id, String firstname, String lastname);
+    Candidate UpdateCandidate(int id,String firstname, String lastname,byte[] cv, int id_job);
     //-------- STATUS ---------
     void AddStatus(Integer id, String name);
     public List<Status> getStatus();

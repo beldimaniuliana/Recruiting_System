@@ -21,7 +21,7 @@
       <input type="text" class="form-control" name="lastName" placeholder="Last name">
     </div> 
       
-     <div class="form-group">
+    <div class="form-group">
         <label for="fileName">Select file to upload:</label>
         <input type="file" name="fileName">
     </div>

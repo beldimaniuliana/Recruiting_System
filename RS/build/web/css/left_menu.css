@@ -4,7 +4,7 @@
   border-radius: 0;
   text-align: center;
   height: 100%;
-  
+  position:flex;
 }
 
 .navbar-fixed-left .navbar-nav > li {
