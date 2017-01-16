@@ -1,0 +1,1 @@
+srv.Position.DeleteJob

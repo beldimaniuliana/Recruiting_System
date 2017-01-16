@@ -2,11 +2,10 @@
 <style><jsp:include page="../css/page.css"/></style>
 
 <% if(session.getAttribute("user") != null) { %>
-      <div class="alert alert-success">
-          <h4>Weolcome </h4>
-          <strong>
-              <%= session.getAttribute("user") %>
-          </strong>
+      <div>
+          <h4>Welcome <strong><%= session.getAttribute("user") %></strong>
+          </h4>
+          
       </div>
     <% } %>
 

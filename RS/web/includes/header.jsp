@@ -41,6 +41,7 @@
                       <li><a href="#">CV Model</a></li>
                     </ul>
                   </li>
+                  <li><a href="http://localhost:8080/RS/auth/contact.jsp">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="http://localhost:8080/RS/auth/login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 

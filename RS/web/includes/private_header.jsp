@@ -32,7 +32,6 @@
                   <li> <a href="<%=request.getContextPath()%>/GetPosition">Job Positions</a>
                      <li> <a href="<%=request.getContextPath()%>/GetCandidate">Candidates</a>
                   <li><a href="<%=request.getContextPath()%>/GetUsers">Users</a></li>
-                  <li><a href="http://localhost:8080/RS/auth/contact.jsp">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
