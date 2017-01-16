@@ -1,6 +1,7 @@
 <jsp:include page="./includes/header.jsp" />
 
 <div class="container">
+
   <h2>My career </h2>
   <p>Be your own employer!</p>
   <div class="row">

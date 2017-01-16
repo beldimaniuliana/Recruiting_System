@@ -2,6 +2,7 @@
 package rs.entities;
 
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -72,10 +73,6 @@ public class Candidate implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.cv = cv;
-    }
-
-    public Candidate(Integer id, String firstname, String lastname) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Integer getId() {

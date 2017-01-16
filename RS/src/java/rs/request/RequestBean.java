@@ -1,6 +1,7 @@
 
 package rs.request;
 
+import java.sql.Blob;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -27,8 +28,7 @@ public class RequestBean implements Request{
             user.setIdRole(idRole);
             em.persist(user);
            
-     }
-    
+    }
     
     public void updateUser(Integer id, String username, String password, String firstName, String lastName, String email, int phone, int active, int role){
             User user= em.find(User.class, id);
@@ -45,7 +45,8 @@ public class RequestBean implements Request{
             em.merge(user);
            
      }
-     public List<User> getAllUsers(){
+     
+    public List<User> getAllUsers(){
           
          List<User> users = null;
          try {
@@ -58,7 +59,7 @@ public class RequestBean implements Request{
         }
     }
     
-      public User getUser(Integer userId) {
+    public User getUser(Integer userId) {
             User user = em.find(User.class, userId);
             return user;
     }  
@@ -75,14 +76,12 @@ public class RequestBean implements Request{
     } 
     
     //--------- ROLE ----------
-    
      public void createRole(Integer id, String name){
            
          Role role = new Role(id,name);
             em.persist(role); 
      }
     
-
      public Role DeleteRole(Integer id){
          try{
             Role role = (Role)em.find(Role.class, id);
@@ -113,8 +112,7 @@ public class RequestBean implements Request{
             throw new EJBException(ex);
         }
     }
-     
-     
+        
     //--------- JOB -----------
     public void AddJob(Integer id, Date date, int no_spot, int id_position, int id_candidate, int id_status) {
         Job job = new Job(id, date, no_spot);
@@ -170,6 +168,7 @@ public class RequestBean implements Request{
             throw new EJBException(ex);
         }
     }
+    
     //------- POSITION --------
     public void AddPosition(Integer id, String name, String requirements){
         Position position = new Position(id, name, requirements);
@@ -210,12 +209,31 @@ public class RequestBean implements Request{
     }
     //------- CANDIDATE -------
     
-    public void AddCandidate(int id, String firstname, String lastname) {
-        Candidate candidate = new Candidate(id, firstname,lastname);
+    public void AddCandidate(int id, String firstname, String lastname,byte[] cv,int  id_job) {
+        Candidate candidate = new Candidate(id, firstname, lastname, cv);
+     
+        Job idJob = em.find(Job.class, id_job);
+        
+        candidate.setIdJob(idJob);
+        
         em.persist(candidate);
     }
+    
+    public void AddCandidateToJob(int id, String firstname, String lastname,byte[] cv,int  id_job, int spot) {
+        Candidate candidate = new Candidate(id, firstname, lastname, cv);
+     
+        Job idJob = em.find(Job.class, id_job);
+        candidate.setIdJob(idJob);
+        
+        Job job = (Job)em.find(Job.class, id_job);
+        
+        job.setNoSpot(spot - 1);
+ 
+        em.persist(candidate);
+        
+        em.merge(job);
+    }
 
-  
     public Candidate DeleteCandidate(Integer id) {
          try{
             Candidate candidate = (Candidate)em.find(Candidate.class, id);

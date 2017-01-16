@@ -22,11 +22,11 @@
                 <td>${item.idPosition.name}</td>
                 <td>${item.idStatus.name}</td>
                 <td>
-                    <form action="Job/AplyJob.jsp" method="POST">
-                        <input type="hidden" name="id" value=${item.id}>
-                        <input type="hidden" name="date" value=${item.date}>
-                        <input type="hidden" name="spot" value=${item.noSpot}>
+                    <form action="AplyJob.jsp" method="POST">
+                        <input type="hidden" name="job" value=${item.id}>
                         <input type="hidden" name="position" value=${item.idPosition.id}>
+                        <input type="hidden" name="position_name" value=${item.idPosition.name}>
+                        <input type="hidden" name="spot" value=${item.noSpot}>
                         <input type="submit" name="submit" value="Apply" class="btn btn-primary">
                     </form>
                 </td>
