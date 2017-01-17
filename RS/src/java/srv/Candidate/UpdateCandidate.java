@@ -18,14 +18,15 @@ public class UpdateCandidate extends HttpServlet {
     Request req;
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-     
+        
+        int id = Integer.parseInt(request.getParameter("id"));
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
         String CV = request.getParameter("fileName");
         byte[] input = new byte[1];
         int id_job = Integer.parseInt(request.getParameter("job"));
       
-        req.UpdateCandidate(1, firstname, lastname,input , id_job);
+        req.UpdateCandidate(id, firstname, lastname,input , id_job);
         
         response.sendRedirect("GetCandidate");
     }

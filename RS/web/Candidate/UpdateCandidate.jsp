@@ -21,6 +21,7 @@
        
     <div class="form-group">
       <label for="firstname">First name:</label> 
+      <input type="hidden" class="form-control" name="id" value=<%= request.getParameter("id")%>>
       <input type="text" class="form-control" name="firstname" value="<%= request.getParameter("firstName")%>">
     </div>  
          
