@@ -28,7 +28,7 @@
       <input type="text" class="form-control" name="requirements" placeholder="Requirements">
     </div>  
       
-    <button type="submit" class="btn btn-default">Create</button>
+    <input type="submit" value="Create" class="btn btn-primary">
   </form>
   
     <br><br>
@@ -62,7 +62,7 @@
                 <td>
                     <form action="../DeletePosition" method="POST">
                         <input type="hidden" name="id" value=${item.id}>
-                        <input type="submit" name="submit" value="Delete">
+                        <input type="submit" value="Delete" class="btn btn-danger">
                     </form>
                 </td>
                 <td>
@@ -70,7 +70,7 @@
                         <input type="hidden" name="id" value=${item.id}>
                         <input type="hidden" name="position" value=${item.name}>
                         <input type="hidden" name="requirements" value=${item.requirements}>
-                        <input type="submit" name="submit" value="Edit">
+                        <input type="submit" value="Edit" class="btn btn-primary">
                     </form>
                 </td>
             </tr>

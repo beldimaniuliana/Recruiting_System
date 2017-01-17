@@ -3,22 +3,20 @@
 <style><jsp:include page="../css/page.css"/></style>
 <style><jsp:include page="../css/left_menu.css"/></style>
 
-<div class="navbar navbar-inverse navbar-fixed-left color">
+<div class="navbar navbar-inverse navbar-fixed-left color top">
   <p class="navbar-brand" >Analysis and changes</p><br><br>
   
   <ul class="nav navbar-nav">
    <li><a href="<%=request.getContextPath()%>/GetUsers">Users</a></li>
-   <li><a href="AddUser.jsp">Register User</a></li>
+   <li><a href="AddUser.jsp">Register New Account</a></li>
    <li><a href="<%=request.getContextPath()%>/GetRoles">New Role</a></li>
   </ul>
 </div>
 
 <div class="container">
  <div class="row">
- 
-     
-  <br/><br/><br/><br/>
-  <h3>All Registered users</h3> <br/>
+
+  <h2>All Registered Users:</h2> <br/>
          <table class="table table-hover">
                  <th>ID</th>
                  <th>Username</th>
@@ -29,6 +27,8 @@
                  <th>Phone</th>
                  <th>Active</th>
                  <th>Role</th>
+                 <th>Delete</th>
+                 <th>Update</th>
                  <c:forEach items="${userList}" var="item">
              <tr>
                  <td>${item.id}</td>

@@ -9,7 +9,7 @@
   
   <ul class="nav navbar-nav">
     <li> <a href="<%=request.getContextPath()%>/GetJob">Job Offer</a></li>
-    <li><a href="#">New Status</a></li> 
+    <li><a href="<%=request.getContextPath()%>/GetStatus">New Status</a></li> 
   </ul>
 </div>
 
@@ -29,7 +29,9 @@
       
     <div class="form-group">
       <label for="candidate">Candidate</label>
+                
           <select class="form-control" name="candidate">
+              <option>None</option>
             <c:forEach items="${candidates}" var="item">
                 <option value=${item.id}>${item.id}</option>
             </c:forEach>
@@ -54,8 +56,8 @@
       <label for="spot">Available Spots</label>
       <input type="number" class="form-control" name="spot" placeholder="Spot number">
     </div>  
-      
-    <button type="submit" class="btn btn-default">Create</button>
+
+     <input type="submit" value="Create" class="btn btn-primary">       
   </form>
   
     <br><br>

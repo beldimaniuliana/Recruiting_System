@@ -20,10 +20,7 @@
         ["Candidates", 60, "silver"],
         ["Job-Status", 20, "blue"],
         ["Opened Positions", 85, "red"],
-        ["Stefan", 35, "gray"],
-        ["Florin", 41, "green"],
-        ["Iuliana", 18, "red"],
-        ["Lazar", 25, "orange"],
+   
       ]);
 
       var view = new google.visualization.DataView(data);
@@ -35,7 +32,7 @@
                        2]);
 
       var options = {
-        title: "Aici nu stiu ce sa scriu dar mai  vedem :))",
+        title: "",
         width: 1000,
         height: 400,
         bar: {groupWidth: "95%"},

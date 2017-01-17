@@ -43,8 +43,8 @@
         <input type="file" name="fileName">
     </div>        
             
-    <input type="submit" class="btn btn-default" value="Create">
-    
+    <input type="submit" value="Create" class="btn btn-primary">       
+
     </form>   
             
         <h2>All Candidates</h2>

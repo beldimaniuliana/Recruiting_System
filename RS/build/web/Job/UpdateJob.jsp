@@ -59,7 +59,7 @@
       <input type="number" class="form-control" name="spot" value=<%=request.getParameter("spot")%>>
     </div>  
       
-    <button type="submit"  class="btn btn-primary">Update</button>
+    <inpit type="submit"  class="btn btn-primary" value="Update">
   </form>
 
  </div>

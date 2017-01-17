@@ -3,12 +3,12 @@
 <style><jsp:include page="../css/page.css"/></style>
 <style><jsp:include page="../css/left_menu.css"/></style>
 
-<div class="navbar navbar-inverse navbar-fixed-left color">
+<div class="navbar navbar-inverse navbar-fixed-left color top">
   <p class="navbar-brand" >Analysis and changes</p><br><br>
   
   <ul class="nav navbar-nav">
    <li><a href="<%=request.getContextPath()%>/GetUsers">Users</a></li>
-   <li><a href="../User/AddUser.jsp">Register User</a></li>
+   <li><a href="../User/AddUser.jsp">Register New Account</a></li>
    <li><a href="<%=request.getContextPath()%>/GetRoles">New Role</a></li>
   </ul>
 </div>
@@ -18,22 +18,19 @@
  
 <div class="container">
  <div class="row">
-   <h3>Create a new role</h3> <br/>  
+   <h2>Add New Role</h2> <br/>  
      <form action="../AddRole" method="POST">
-         <br/> <br/>   
     <div class="form-group"> 
+      <label for="role">Role: </label>  
       <input type="text" class="form-control" name="role" placeholder="Role">
-     </div>
-      <br/>    
-    <button type="submit" class="btn btn-default">Create</button>
+     </div>   
+     <input type="submit" value="Create" class="btn btn-primary">
   </form>
      
  </div>
 </div>  
      
-     
-  <br/><br/><br/><br/>
-  <h3>All Roles</h3> <br/>
+  <h2>All Roles</h2> <br/>
          <table class="table table-hover">
                  <th>ID</th>
                  <th>Role</th>

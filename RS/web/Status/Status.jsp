@@ -22,7 +22,7 @@
       <input type="text" class="form-control" name="status" placeholder="Status">
     </div>  
       
-    <button type="submit" class="btn btn-default">Create</button>
+      <input type="submit" class="btn btn-primary" value="Create">
   </form>
   
   <br><br>
@@ -55,7 +55,7 @@
                         <form action="../DeleteStatus" method="POST">
                             <input type="hidden" name="id" value="${item.id}" >
                             <input type="hidden" name="name" value="${item.name}" >
-                            <button type="submit" name="submit" class="btn btn-default">Delete</button>
+                            <input type="submit" value="Delete" class="btn btn-danger">
                             
                         </form>
                     
@@ -65,7 +65,7 @@
                     <form action="UpdateStatus.jsp" method="POST">
                         <input type="hidden" name="id" value=${item.id}>
                         <input type="hidden" name="status" value=${item.name}>
-                        <button type="submit" name="submit" class="btn btn-default">Edit</button>
+                        <input type="submit" value="Edit" class="btn btn-primary">
                     </form>
                 </td>
                 

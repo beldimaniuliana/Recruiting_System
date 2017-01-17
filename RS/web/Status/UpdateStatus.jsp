@@ -24,7 +24,7 @@
       <input type="text" class="form-control" name="status" value=<%=request.getParameter("status")%>>
     </div>
       
-    <button type="submit" class="btn btn-default">Update</button>
+    <input type="submit" value="Edit" class="btn btn-primary">
   </form>
 
   

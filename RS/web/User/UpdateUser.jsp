@@ -3,12 +3,12 @@
 <style><jsp:include page="../css/page.css"/></style>
 <style><jsp:include page="../css/left_menu.css"/></style>
 
-<div class="navbar navbar-inverse navbar-fixed-left color">
+<div class="navbar navbar-inverse navbar-fixed-left color top">
   <p class="navbar-brand" >Analysis and changes</p><br><br>
   
   <ul class="nav navbar-nav">
    <li><a href="<%=request.getContextPath()%>/GetUsers">Users</a></li>
-   <li><a href="AddUser.jsp">Register User</a></li>
+   <li><a href="AddUser.jsp">Register New Account</a></li>
    <li><a href="<%=request.getContextPath()%>/GetRoles">New Role</a></li>
   </ul>
 </div>
@@ -16,6 +16,7 @@
 <div class="container">
  <div class="row">
      
+     <h2>Update User:</h2>
      <form action="../UpdateUser" method="POST">
          <br/> <br/>   
      <div class="form-group"> 
@@ -58,7 +59,7 @@
                      <option value="${item.id}">${item.name}</option>
                 </c:forEach>
     </select>   <br/>    
-    <button type="submit" class="btn btn-default">Edit</button>
+    <input type="submit" value="Edit" class="btn btn-primary">
   </form>
  
  </div>

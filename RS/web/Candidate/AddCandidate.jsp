@@ -24,9 +24,8 @@
     <div class="form-group">   
       <input type="text" class="form-control" name="lastname" placeholder="Last Name">
     </div>  
-         
-   <br/>    
-    <button type="submit" class="btn btn-default">Create</button>
+           
+     <input type="submit" value="Create" class="btn btn-primary">       
   </form>
  
  </div>

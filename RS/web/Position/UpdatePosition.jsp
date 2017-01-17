@@ -17,7 +17,7 @@
  <div class="row">
 
   <% request.setAttribute("id", request.getParameter(request.getParameter("id"))); %>   
-  <h2>Update</h2>
+  <h2>Update Position</h2>
   <form action="../UpdatePosition" method="POST">
       <input type="hidden" name="id" value=<%= request.getParameter("id")%>>
     <div class="form-group">
